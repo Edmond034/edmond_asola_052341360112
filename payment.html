@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eddie Blaq Restaurant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #9b5555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #1d889b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"], input[type="tel"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="payment-form">
+            <h2>Mobile Money Only To "0548247268/0509019095"</h2>
+            <div class="form-row">
+                <label for="name">Please enter the name for transaction</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-row">
+                <label for="number">Phone Number</label>
+                <input type="number" id="number" name="number" required>
+            </div>
+            <div class="form-row">
+                <label for="network-type">Network Type</label>
+                <input type="text" id="network-type" name="network-type" required>
+            </div>
+            <div class="form-row">
+                <label for="sent-date">Sent Date (DD/MM/YY)</label>
+                <input type="text" id="sent-date" name="sent-date" pattern="\d{2}/\d{2}/\d{2}" placeholder="DD/MM/YY" required>
+                <button type="button" onclick="autoFillDate()">Auto Fill Today's Date</button>
+            </div>
+            
+            <script>
+            function autoFillDate() {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+                var yy = String(today.getFullYear()).substr(-2);
+            
+                var dateString = dd + '/' + mm + '/' + yy;
+                document.getElementById('sent-date').value = dateString;
+            }
+            </script>
+            
+            <div class="form-row">
+                <label for="reference">Put Reference ID Here</label>
+                <input type="text" id="reference" name="reference" required>
+            </div>
+            <button style="border-radius: 30px; background-color:  #6ada60;border: none; cursor: pointer; padding: 10px; width: 100%;font-size: 16px;font-size: 16px;" >
+                <a class="nav-link" href="C:\xampp\htdocs\index\thank.html">finish payment</a>
+            </button>
+        </form>
+    </div>
+</body>
+</html>
